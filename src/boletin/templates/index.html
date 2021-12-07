@@ -11,10 +11,13 @@
     {{ titulo }}
     <hr/>
     <br/>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ formm.as_p }}
-        <input type="submit" value="Registrar">
-    </form>
+
+    {% if form %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ formm.as_p }}
+            <input type="submit" value="Registrar">
+        </form>
+    {% endif %}
 </body>
 </html>
