@@ -1,6 +1,6 @@
 from django import forms
 from django.shortcuts import render
-from .forms import Reg_Form, Regis_model_form
+from .forms import Regis_model_form, Contact_Form
 from .models import Registrado
 
 # Create your views here.
@@ -38,3 +38,16 @@ def index(request):
         #    email=form_email,
         #)
     return render(request, 'index.html', context)
+
+def contact(request):
+    titulo = 'Hi, Welcome to contact View'
+    form = Contact_Form(request.POST or None)
+    if form.is_valid():
+        for key in form.cleaned_data:
+            print(key)
+            print(form.cleaned_data.get(key))
+    context = {
+        'form_contact': form,
+        'titulo': titulo
+    }
+    return render(request, 'forms.html', context)

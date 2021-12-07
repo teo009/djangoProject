@@ -11,10 +11,9 @@
     {{ titulo }}
     <hr/>
     <br/>
-
     <form method="POST" action="">
         {% csrf_token %}
-        {{ formm.as_p }}
+        {{ form_contact.as_p }}
         <input type="submit" value="Registrar">
     </form>
 </body>
