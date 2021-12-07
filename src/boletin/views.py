@@ -6,6 +6,10 @@ from .models import Registrado
 # Create your views here.
 
 def index(request): 
+    titulo = 'Hi there'
+    if request.user.is_authenticated:
+        titulo = 'Bienvenido %s' %(request.user)
+    
     form = Reg_Form(request.POST or None)
     if form.is_valid():
         form_data = form.cleaned_data
@@ -17,6 +21,7 @@ def index(request):
             email=form_email,
         )
     context = {
+        'titulo' : titulo,
         'formm' : form,
     }
     return render(request, 'index.html', context)
