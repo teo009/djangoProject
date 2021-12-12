@@ -3,6 +3,9 @@ from django.shortcuts import render
 from .forms import Regis_model_form, Contact_Form
 from .models import Registrado
 
+from django.core.mail import send_mail
+from django.conf import settings
+
 # Create your views here.
 
 def index(request): 
@@ -43,9 +46,26 @@ def contact(request):
     titulo = 'Hi, Welcome to contact View'
     form = Contact_Form(request.POST or None)
     if form.is_valid():
-        for key in form.cleaned_data:
-            print(key)
-            print(form.cleaned_data.get(key))
+        #for key in form.cleaned_data:
+        #    print(key)
+        #    print(form.cleaned_data.get(key))
+        email = form.cleaned_data.get('email')
+        mensaje = form.cleaned_data.get('mensaje') 
+        nombre = form.cleaned_data.get('nombre')
+        #---------------------------------------
+        asunto = 'Prueba de form contacto'
+        mensaje_email = '%s: %s enviado por %s' %(nombre, mensaje, email)
+        email_from = settings.EMAIL_HOST_USER
+        email_to = ['teo.obando09@gmail.com']
+        
+        send_mail(
+            asunto,
+            mensaje_email,
+            email_from,
+            email_to,
+            fail_silently=False,
+        )
+        
     context = {
         'form_contact': form,
         'titulo': titulo
