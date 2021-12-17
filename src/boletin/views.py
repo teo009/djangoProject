@@ -54,9 +54,9 @@ def contact(request):
         nombre = form.cleaned_data.get('nombre')
         #---------------------------------------
         asunto = 'Prueba de form contacto'
-        mensaje_email = '%s: %s enviado por %s' %(nombre, mensaje, email)
+        mensaje_email = '%s dice: %s. Enviado por: %s' %(nombre, mensaje, email)
         email_from = settings.EMAIL_HOST_USER
-        email_to = ['teo.obando09@gmail.com']
+        email_to = ['danielcortedano14@gmail.com']
         
         send_mail(
             asunto,

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -126,7 +127,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+#----------------------------------------------------------
 STATIC_URL = '/static/'
+STATIC_URL = '/media/'
+
+STATICFILES_DIRS = [
+    #(BASE_DIR / "static_project" / "static"),
+    #'/var/www/static',
+    os.path.join(BASE_DIR, 'static_project', 'static'),
+]
+
+#STATIC_ROOT = (os.path.join(BASE_DIR) / 'static_env' / 'static_root')
+#MEDIA_ROOT = (os.path.join(BASE_DIR) / 'static_env' / 'media_root')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'static_root')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'media_root')
+#----------------------------------------------------------
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
