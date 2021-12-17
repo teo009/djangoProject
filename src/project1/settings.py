@@ -132,18 +132,12 @@ STATIC_URL = '/static/'
 STATIC_URL = '/media/'
 
 STATICFILES_DIRS = [
-    #(BASE_DIR / "static_project" / "static"),
-    #'/var/www/static',
     os.path.join(BASE_DIR, 'static_project', 'static'),
+    #'/var/www/static',
 ]
 
-#STATIC_ROOT = (os.path.join(BASE_DIR) / 'static_env' / 'static_root')
-#MEDIA_ROOT = (os.path.join(BASE_DIR) / 'static_env' / 'media_root')
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'static_root')
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'media_root')
 #----------------------------------------------------------
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
