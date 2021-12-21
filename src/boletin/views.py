@@ -40,7 +40,7 @@ def index(request):
         #    nombre=form_name,
         #    email=form_email,
         #)
-    return render(request, 'base.html', context)
+    return render(request, 'index.html', context)
 
 def contact(request):
     titulo = 'Hi, Welcome to contact View'
