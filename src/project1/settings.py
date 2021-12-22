@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     
     #Local applications
     'boletin',
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,6 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'media_root')
 #----------------------------------------------------------
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#----------------------------------------------------------
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
