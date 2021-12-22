@@ -4,31 +4,37 @@
 {% block head_title %}Usr{% endblock %}
 
 {% block example %}
-    <div class="container">
-        <div class="bg-light p-5 rounded">
-            <h1>Navbar example</h1>
-            <p class="lead">
-                This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, 
-                this navbar remains in its original position and moves with the rest of the page.
-            </p>
-            <a 
-                class="btn btn-lg btn-primary" href="/docs/5.1/components/navbar/" role="button"
-            >
-                View navbar docs &raquo;
-            </a>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="bg-light p-5 rounded">
+                <h1>Navbar example</h1>
+                <p class="lead">
+                    This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, 
+                    this navbar remains in its original position and moves with the rest of the page.
+                </p>
+                <a 
+                    class="btn btn-lg btn-primary" href="/docs/5.1/components/navbar/" role="button"
+                >
+                    View navbar docs &raquo;
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6" style="background-color: rgba(0, 0, 0, 0.377); height: 330px;">
+
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    {{ titulo }}
-    <hr/>
-    <br/>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ formm | crispy }}
-        <hr/> <!--Salto de línea mediante una línea horizontal-->
-        <input type="submit" value="Registrar">
-    </form>
+    <div class="text-color">
+        {{ titulo }}
+        <hr/>
+        <br/>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ formm | crispy }}
+            <hr/> <!--Salto de línea mediante una línea horizontal-->
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
 {% endblock %}
