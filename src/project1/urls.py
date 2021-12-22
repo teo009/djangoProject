@@ -24,10 +24,14 @@ from django.conf.urls.static import static
 from boletin import views
 from project1.settings import DEBUG
 
+#Importación de las views fuera de la app
+from .views import galery
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('contact/', views.contact, name='contact'),
+    path('galery/', galery, name='galery'),
 ]
 
 if settings.DEBUG: 
