@@ -43,7 +43,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 def contact(request):
-    titulo = 'Hi, Welcome to contact View'
+    titulo = 'Contact View'
     form = Contact_Form(request.POST or None)
     if form.is_valid():
         #for key in form.cleaned_data:

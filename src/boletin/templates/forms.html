@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
-{% block head_title %}Contact{% endblock %}
 {% load crispy_forms_tags %}
+{% block head_title %}Contact{% endblock %}
 
 {% block content %}
-    {{ titulo }}
+    {% if titulo %}
+        <h1 class="text-aling-center">{{titulo}}</h1>
+    {% endif %}
     <hr/>
-    <br/>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form_contact | crispy }}
-        <br/>
-        <input type="submit" value="Registrar" class="btn btn-success">
-    </form>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <br/>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form_contact | crispy }}
+                <br/>
+                <input type="submit" value="Enviar" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
 {% endblock %}
