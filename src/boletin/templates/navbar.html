@@ -24,7 +24,7 @@
                 {% if request.user.is_authenticated %}
                     <li>
                         <a href="/accounts/logout/">
-                            <button class="btn btn-secondary">Log out from {{ user }}</button>
+                            <button class="btn btn-outline-danger btn-sm">Log out from {{ user }}</button>
                         </a>
                     </li>
                 
@@ -33,7 +33,7 @@
 
                     <li>
                         <a href="/accounts/login/">
-                            <button class="btn btn-danger">Login</button>
+                            <button class="btn btn-outline-success btn-sm">Login</button>
                         </a>
                     </li>
                 {% endif %}

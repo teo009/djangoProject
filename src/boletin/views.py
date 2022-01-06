@@ -5,6 +5,7 @@ from .models import Registrado
 
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -42,6 +43,7 @@ def index(request):
         #)
     return render(request, 'index.html', context)
 
+@login_required
 def contact(request):
     titulo = 'Contact View'
     form = Contact_Form(request.POST or None)
