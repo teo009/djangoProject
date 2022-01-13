@@ -1,3 +1,5 @@
+{% block navbar%}
+                
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'index' %}">Teoelcrack</a>
@@ -26,7 +28,13 @@
                 {% if request.user.is_authenticated %}
                     <li>
                         <a href="/accounts/logout/">
-                            <button class="btn btn-outline-success btn-sm">Log out from {{ user }}</button>
+                            <button class="btn btn-outline-success btn-sm">
+                                Log out from {{ user }}
+                                <i 
+                                    class="fa-solid fa-right-from-bracket fa-beat-fade" 
+                                    style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;" 
+                                ></i>
+                            </button>
                         </a>
                     </li>
                 
@@ -35,15 +43,17 @@
 
                     <li>
                         <a href="/accounts/login/">
-                            <button class="btn btn-outline-success btn-sm">Login</button>
+                            <button class="btn btn-outline-success btn-sm">
+                                Login 
+                                <i 
+                                    class="fa-solid fa-right-from-bracket fa-beat-fade" 
+                                    style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;" 
+                                ></i>
+                            </button>
                         </a>
                     </li>
                 {% endif %}
             </ul>
-        <!--<form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        </div>-->
     </div>
 </nav>
+{% endblock %}
